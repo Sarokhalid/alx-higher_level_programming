@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "list.h"
+#include "lists.h"
 /**
  * check_cycle - bvcx
  * @list: hggccc
