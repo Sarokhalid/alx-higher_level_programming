@@ -1,5 +1,5 @@
 #!/usr/bin/python3
 def print_last_digit(number):
     last = abs(number) % 10
-    print(last)
-    return str(last)
+    print(last, end='')
+    return last
