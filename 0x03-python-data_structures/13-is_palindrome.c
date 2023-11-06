@@ -1,48 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
-/**
- * is_palindrome - hgffxx
- * @head: jgfc
- * Return: bvvccx
- */
-int is_palindrome(listint_t **head)
+int is_palindrome(Node** head)
 {
-	if (*head == NULL)
-	{
-		return (1);
-	}
-	listint_t *slow = *head;
-	listint_t *fast = *head;
+	if (*head == NULL || (*head)->next == NULL) {
+		            return 1; // An empty list or a list with a single node is considered a palindrome
+			        }
 
-	while (fast != NULL && fast->next != NULL)
-	{
-		slow = slow->next;
-		fast = fast->next->next;
-	}
-	listint_t *prev = NULL;
-	listint_t *current = slow;
-	listint_t *next;
+	        // Find the length of the linked list
+	        int length = 0;
+		    Node* current = *head;
+		        while (current != NULL) {
+				        length++;
+					        current = current->next;
+						    }
+			linked list
+				    Node* prev = NULL;
+			    current = *head;
+			        int count = 0;
+				    while (count < length / 2) {
+					            Node* next = current->next;
+						            current->next = prev;
+							            prev = current;
+								            current = next;
+									            count++;
+										        }
+				    if (length % 2 != 0) {
+					            current = current->next;
+						        }
 
-	while (current != NULL)
-	{
-		next = current->next;
-		current->next = prev;
-		prev = current;
-		current = next;
-	}
-	listint_t *first = *head;
-	listint_t *second = prev;
+				        // Compare the reversed first half with the second half of the linked list
+				        while (current != NULL) {
+						        if (current->data != prev->data) {
+								            return 0; // Not a palindrome
+									            }
+							        current = current->next;
+								        prev = prev->next;
+									    }
 
-	while (second != NULL)
-	{
-		if (first->n != second->n)
-		{
-			return (0);
-		}
-		first = first->next;
-		second = second->next;
-	}
-	return (1);
+					    return 1; // Palindrome
 }
 
