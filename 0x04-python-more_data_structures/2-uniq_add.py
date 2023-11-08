@@ -1,8 +1,4 @@
 #!/usr/bin/python3
 def uniq_add(my_list=[]):
-    unique_integers = set()
-    for num in my_list:
-        if isinstance(num, int):
-            unique_integers.add(num)
-        total = sum(unique_integers)
-    return total
+    unique_set = set(my_list)
+    return sum(unique_set)
