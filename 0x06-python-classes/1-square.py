@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-"""square module"""
 
-class square:
+class Square:
+    """
+    This class represents a square.
+    """
     def __init__(self, size):
-        """
-        Args:
-            size: lenght of a side of the square
-	"""
-        self.__size = size
+    """
+    Initializes a Square instance with a given size
+    """
+    self.__size = size
