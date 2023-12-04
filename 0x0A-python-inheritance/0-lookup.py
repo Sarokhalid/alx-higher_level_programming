@@ -1,12 +1,14 @@
 #!/usr/bin/python3
-"""retrive attribute and methoeds"""
+"""jgff"""
 
 
 def lookup(obj):
-    """retrive metheo and attributes
-    Args:
-        obj: object
-    Returns:
-        retrive attribute and methoeds
     """
-    return [attr for attr in dir(obj) if not attr.startswith('__')]
+    Return the list of available attributes and methods of an object
+    Args:
+        obj: The object to lookup
+    Returns:
+        A list object containing the availabl
+        attributes and methods
+    """
+    return dir(obj)
