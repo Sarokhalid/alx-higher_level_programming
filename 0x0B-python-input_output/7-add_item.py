@@ -1,30 +1,17 @@
 #!/usr/bin/python3
-"""fhkk"""
+"""hdjohej"""
+
+
 import sys
-from typing import List
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
+arglist = list(sys.argv[1:])
 
-def save_to_json_file(my_obj, filename):
-    """dhkk"""
-    with open(filename, "w") as file:
-        json.dump(my_obj, file)
+try:
+    h = load_from_json_file('add_item.json')
+except Exception:
+    h = []
 
-
-def load_from_json_file(filename):
-    """dhkk"""
-    with open(filename, "r") as file:
-        return json.load(file)
-
-
-def add_arguments_to_list(arguments: List[str]):
-    """cdhkkl"""
-    try:
-        existing_list = load_from_json_file("add_item.json")
-    except FileNotFoundError:
-        existing_list = []
-    existing_list.extend(arguments)
-    save_to_json_file(existing_list, "add_item.json")
-
-
-arguments = sys.argv[1:]
-add_arguments_to_list(arguments)
+h.extend(arglist)
+save_to_json_file(h, 'add_item.json')
