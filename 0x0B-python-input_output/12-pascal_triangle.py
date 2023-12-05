@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+"""fhjkk"""
+
+
 def pascal_triangle(n):
+    """dhjk"""
     if n <= 0:
         return []
     triangle = [[1]]
