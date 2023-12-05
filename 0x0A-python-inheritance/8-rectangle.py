@@ -3,6 +3,7 @@
 
 
 class BaseGeometry:
+    """ this is class for basegeometry"""
     def area(self):
         """
         Calculate the area.
@@ -29,6 +30,8 @@ class BaseGeometry:
 
 
 class Rectangle(BaseGeometry):
+    """class Rectangle"""
+
     def __init__(self, width, height):
         """
         Initialize a Rectangle object with width and height.
