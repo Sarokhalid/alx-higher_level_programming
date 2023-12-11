@@ -9,6 +9,10 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         '''hbhsuwhduw'''
         super().__init__(id)
+        self.__width = None
+        self.__height = None
+        self.__x = None
+        self.__y = None
         self.width = width
         self.height = height
         self.x = x
@@ -22,7 +26,10 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         "hsjjxsjijxijs"""
-        self.validate_integer("width", value, False)
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @property
@@ -33,7 +40,10 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """hsjjzjjj"""
-        self.validate_integer("height", value, False)
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        if value <= 0:
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
@@ -44,7 +54,10 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         '''hsjkzkik'''
-        self.validate_integer("x", value)
+        if not isinstance(value, int):
+            raise TypeError("x must be an integer")
+        if value < 0:
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
@@ -55,17 +68,11 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         '''hxjhjkxioasox'''
-        self.validate_integer("y", value)
+        if not isinstance(value, int):
+            raise TypeError("y must be an integer")
+        if value < 0:
+            raise ValueError("y must be >= 0")
         self.__y = value
-
-    def validate_integer(self, name, value, eq=True):
-        '''hsbwdhwhjdiwjdijwudyegfuhfi'''
-        if type(value) is not int:
-            raise TypeError("{} must be an integer".format(name))
-        if eq and value < 0:
-            raise ValueError("{} must be >= 0".format(name))
-        elif not eq and value <= 0:
-            raise ValueError("{} must be > 0 ".format(name))
 
     def area(self):
         '''hsxkjsiaoxdskjijdf'''
