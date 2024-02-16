@@ -6,6 +6,7 @@ Using module SQLAlchemy
 """
 
 from model_state import Base, State
+from model_city import City
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sys import argv
